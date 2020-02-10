@@ -1,4 +1,4 @@
-# Lab03 - Deep dive into gdb
+# Deep dive into gdb
 
 Today, we are going to investigate some of the features of the Gnu Debugger, gdb. I'm not going to ask you to write any C code in this lab... just write up some gdb command files, mostly to learn about some of the many features of gdb, many of which will save you lots of time and effort while working on other labs, homework, and projects.
 
@@ -195,14 +195,3 @@ Now, run `make gdb` again. When you get a prompt, continue. Notice that the time
 
 We need to mention that gdb is extremely powerful and gives us lots of flexibility to implement creative debug scenarios, but there is a performance penalty. At the beginning of this lab, we ran the ackerman function with parameters of 4 and 1, and it didn't take too long for the segmentation violation to occur.  However, now we have three breakpoints, and even though these breakpoints are both silent and (in one case) conditional, that requires gdb to take control three times for each invocation of the `ack` function. You can see, the `ack` function is invoked hundreds of thousands of times before we get the segmentation violation. With the extra debug breakpoints, that means that we'd have to wait for probably a couple of hours to get all the way to the segmentation violation. I won't ask you to do that.
 
-## Submitting your Lab
-
-You will get graded for today's lab based on the final version of your gdb_cmds.txt file. When you are finished debugging your code, make sure to commit and push your repository using git. Then, do a `git rev-parse HEAD` from the project directory to get the hash code associated with the commit. Cut and paste that hashCode into the Lab 03 submission area in the Lab Submissions folder under Content for CS-220 in myCourses. You may submit as many times as you wish up to the deadline of midnight tonight (Feb. 12), only the last submission will be graded.
-
-## Grading your Submission
-
-If you turn in your code late, 4 points will be deducted, unless you have received an extension from the professor. Any submissions after Thursday will receive a zero grade.
-
-Missing or lack of attempt to solve the problem will result in a zero grade.
-
-We will run `make gdb` in your repository, and expect to see a message about the recursion level (which should be 16) and the number of invocations of the `ack` function. If we continue, we should stop again with the recursion level doubled. Any deviation from this behavior will result in a deduction of up to 6 points (depending on how far off you are from the correct behavior.)
